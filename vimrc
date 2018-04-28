@@ -1,4 +1,4 @@
-set term=builtin_ansi
+set term=xterm-256color
 set nocompatible
 filetype plugin on
 
@@ -7,6 +7,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
       \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+set rtp+=/usr/local/opt/fzf
 
 call plug#begin('~/.vim/plugged')
     " airline stuff
@@ -44,7 +45,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'justinmk/vim-gtfo'
 
     " fuzzy file
-    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'junegunn/fzf.vim'
 call plug#end()
 
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -70,6 +71,8 @@ set wildmenu
 set wildmode=list:longest,full
 set undofile
 "let g:airline_powerline_fonts = 1
+set encoding=utf-8
+set noshowmode
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='gruvbox'
