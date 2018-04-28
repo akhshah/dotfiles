@@ -1,6 +1,7 @@
 set term=xterm-256color
 set nocompatible
 filetype plugin on
+let mapleader = ","
 
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -40,6 +41,7 @@ call plug#begin('~/.vim/plugged')
     " coding help
     Plug 'majutsushi/tagbar'
     Plug 'scrooloose/nerdcommenter'
+    Plug 'w0rp/ale'
 
     " go to file
     Plug 'justinmk/vim-gtfo'
@@ -70,16 +72,15 @@ set t_Co=256
 set wildmenu
 set wildmode=list:longest,full
 set undofile
-"let g:airline_powerline_fonts = 1
 set encoding=utf-8
 set noshowmode
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='gruvbox'
-let g:tex_flavor='latex'
+let g:airline#extensions#ale#enabled = 1
+"let g:airline_powerline_fonts = 1
 
 map <C-n> :NERDTreeToggle<CR>
-let mapleader = ","
 
 let g:gruvbox_bold=1
 set background=dark
@@ -87,6 +88,7 @@ colorscheme gruvbox
 
 " For LaTeX Compilation
 let g:LatexBox_viewer="open"
+let g:tex_flavor='latex'
 
 let g:limelight_conceal_ctermfg = 'gray'
 
