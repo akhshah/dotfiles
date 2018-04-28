@@ -19,6 +19,7 @@ alias python="python3"
 alias matlab="matlab -nojvm"
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ssh='ssh -Y'
 
 eval "$(thefuck --alias)"
 
