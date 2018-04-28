@@ -48,8 +48,12 @@ call plug#begin('~/.vim/plugged')
 
     " fuzzy file
     Plug 'junegunn/fzf.vim'
+
+    " tmux
+    Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
+" get rid of all trailing whitespace in a file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 set backspace=indent,eol,start
@@ -97,3 +101,8 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" NERD commenter settings
+let g:NERDSpaceDelims = 1 " add space after comment symbol
+let g:NERDCompactSexyComs = 1 " for those sexy comments
+let g:NERDTrimTrailingWhitespace = 1 " to get rid of whitespace
