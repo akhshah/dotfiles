@@ -106,3 +106,6 @@ nnoremap <C-l> <C-w>l
 let g:NERDSpaceDelims = 1 " add space after comment symbol
 let g:NERDCompactSexyComs = 1 " for those sexy comments
 let g:NERDTrimTrailingWhitespace = 1 " to get rid of whitespace
+
+" ALE settings
+let g:ale_lint_on_text_changed = 'never'
