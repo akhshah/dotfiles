@@ -8,6 +8,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
       \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
 set rtp+=/usr/local/opt/fzf
 
 call plug#begin('~/.vim/plugged')
@@ -51,6 +52,16 @@ call plug#begin('~/.vim/plugged')
 
     " tmux
     Plug 'christoomey/vim-tmux-navigator'
+
+    " language
+    Plug 'sheerun/vim-polyglot'
+
+    " buffer
+    Plug 'jlanzarotta/bufexplorer'
+
+    " yank
+    Plug 'machakann/vim-highlightedyank' " highlights yanked text
+
 call plug#end()
 
 " get rid of all trailing whitespace in a file
@@ -109,3 +120,8 @@ let g:NERDTrimTrailingWhitespace = 1 " to get rid of whitespace
 
 " ALE settings
 let g:ale_lint_on_text_changed = 'never'
+
+" Latex-Box Settings
+let g:LatexBox_latexmk_async = 0 " for asynchronous compilation
+
+set textwidth=80
