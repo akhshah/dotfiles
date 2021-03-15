@@ -19,19 +19,26 @@ call plug#begin('~/.vim/plugged')
     " quickrun code
     Plug 'thinca/vim-quickrun'
 
+    " Zoom in like tmux
+    Plug 'dhruvasagar/vim-zoom'
+
     " colorschemes
     Plug 'altercation/vim-colors-solarized'
     Plug 'morhetz/gruvbox'
+    Plug 'ayu-theme/ayu-vim'
+    Plug 'arcticicestudio/nord-vim'
 
     " latex compiling
     Plug 'LaTeX-Box-Team/LaTeX-Box'
 
     " nerdtree
+    Plug 'majutsushi/tagbar'
     Plug 'scrooloose/nerdtree'
     Plug 'xuyuanp/nerdtree-git-plugin'
 
     " vim start menu
     Plug 'mhinz/vim-startify'
+    Plug 'tpope/vim-fugitive'
 
     " git stuff
     Plug 'airblade/vim-gitgutter'
@@ -43,6 +50,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'majutsushi/tagbar'
     Plug 'scrooloose/nerdcommenter'
     Plug 'w0rp/ale'
+    Plug 'ludovicchabant/vim-gutentags'
 
     " go to file
     Plug 'justinmk/vim-gtfo'
@@ -60,7 +68,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'jlanzarotta/bufexplorer'
 
     " yank
-    Plug 'machakann/vim-highlightedyank' " highlights yanked text
+    Plug 'machakann/vim-highlightedyank'
+
+    " markdown
+    Plug 'godlygeek/tabular'
+    Plug 'plasticboy/vim-markdown'
+
+    " distraction free writing
+    Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
@@ -87,19 +102,24 @@ set t_Co=256
 set wildmenu
 set wildmode=list:longest,full
 set undofile
+set undodir=~/.vim/undo
 set encoding=utf-8
 set noshowmode
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='gruvbox'
+" set termguicolors
+" let g:airline_theme='base16_nord'
 let g:airline#extensions#ale#enabled = 1
 let g:airline_powerline_fonts = 1
 
+" nerdtree stuff
 map <C-n> :NERDTreeToggle<CR>
 
+" background
 let g:gruvbox_bold=1
 set background=dark
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme nord
 
 " For LaTeX Compilation
 let g:LatexBox_viewer="open"
@@ -125,3 +145,37 @@ let g:ale_lint_on_text_changed = 'never'
 let g:LatexBox_latexmk_async = 0 " for asynchronous compilation
 
 set textwidth=80
+
+" tagbar stuff
+nmap <F8> :TagbarToggle<CR>
+
+set ttymouse=xterm2
+set mouse=a
+
+"set clipboard=unnamedplus
+let g:bufExplorerSortBy='number'
+
+" startify options
+set viminfo='100,n$HOME/.vim/files/info/viminfo
+
+" gutentag options
+" https://old.reddit.com/r/vim/comments/d77t6j/guide_how_to_setup_ctags_with_gutentags_properly/
+let g:gutentags_ctags_extra_tags = [
+            \ '--tag-relative=yes',
+            \ '--fields=+ailmnS']
+let g:gutentags_modules = ['ctags']
+let g:gutentags_ctags_exclude = [
+            \ '*.git',
+            \ 'build',
+            \ 'tags']
+let g:gutentags_cache_dir='~/.vim/ccache/'
+
+" markdown functionality
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd FileType markdown setlocal spell spelllang=en_gb
+
+" vim-markdown settings
+"let g:vim_markdown_fenced_languages = ['c++=cpp', 'bash=sh']
+""let g:vim_markdown_math
+"let g:vim_markdown_strikethrough = 1
+"let g:vim_markdown_autowrite = 1

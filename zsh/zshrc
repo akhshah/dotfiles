@@ -1,0 +1,54 @@
+path=('/usr/local/opt/coreutils/libexec/gnubin' $path)
+path=('/usr/local/bin' $path)
+
+typeset -U path
+export PATH
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory autocd extendedglob histignorealldups nocaseglob correct_all
+unsetopt beep
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*'
+zstyle :compinstall filename '/Users/akhil/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+autoload -U colors && colors
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+# aliases
+alias ls="ls --color"
+alias l="ls -al"
+alias ll="ls -l"
+alias v="vim"
+alias cp="cp -p"
+alias cl="clear"
+alias python="python3"
+alias ssh='ssh -Y'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# dircolors
+test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
+
+# plugins
+# TODO: make this work for both linux and darwin systems
+# although this isn't really worth it imo
+# zsh-autosuggestions
+# source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+PROMPT='%B%n%b in %~
+⭢  '
