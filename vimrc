@@ -13,8 +13,9 @@ set rtp+=/usr/local/opt/fzf
 
 call plug#begin('~/.vim/plugged')
     " airline stuff
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    " Plug 'vim-airline/vim-airline'
+    " Plug 'vim-airline/vim-airline-themes'
+    Plug 'itchyny/lightline.vim'
 
     " quickrun code
     Plug 'thinca/vim-quickrun'
@@ -106,20 +107,23 @@ set undodir=~/.vim/undo
 set encoding=utf-8
 set noshowmode
 
-let g:airline#extensions#tabline#enabled = 1
-" set termguicolors
-" let g:airline_theme='base16_nord'
-let g:airline#extensions#ale#enabled = 1
-let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
+" " set termguicolors
+" " let g:airline_theme='base16_nord'
+" let g:airline#extensions#ale#enabled = 1
+" let g:airline_powerline_fonts = 1
 
 " nerdtree stuff
 map <C-n> :NERDTreeToggle<CR>
 
 " background
-let g:gruvbox_bold=1
-set background=dark
+" let g:gruvbox_bold=1
+" set background=dark
 " colorscheme gruvbox
 colorscheme nord
+
+let g:lightline = {
+            \ 'colorscheme': 'nord'}
 
 " For LaTeX Compilation
 let g:LatexBox_viewer="open"
@@ -173,9 +177,3 @@ let g:gutentags_cache_dir='~/.vim/ccache/'
 " markdown functionality
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd FileType markdown setlocal spell spelllang=en_gb
-
-" vim-markdown settings
-"let g:vim_markdown_fenced_languages = ['c++=cpp', 'bash=sh']
-""let g:vim_markdown_math
-"let g:vim_markdown_strikethrough = 1
-"let g:vim_markdown_autowrite = 1
