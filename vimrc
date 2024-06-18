@@ -9,7 +9,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
 
 call plug#begin('~/.vim/plugged')
     " airline stuff
@@ -28,6 +28,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'morhetz/gruvbox'
     Plug 'ayu-theme/ayu-vim'
     Plug 'arcticicestudio/nord-vim'
+    Plug 'sainnhe/everforest'
 
     " latex compiling
     Plug 'LaTeX-Box-Team/LaTeX-Box'
@@ -82,6 +83,8 @@ call plug#end()
 
 " get rid of all trailing whitespace in a file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>g :GitFiles<CR>
+nnoremap <leader>b :Buffers<CR>
 
 set backspace=indent,eol,start
 syntax on

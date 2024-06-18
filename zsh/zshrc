@@ -4,6 +4,9 @@ path=('/usr/local/bin' $path)
 typeset -U path
 export PATH
 
+export CLICOLOR=1
+export TERM=xterm-256color
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -35,6 +38,8 @@ alias ll="ls -l"
 alias cp="cp -p"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --ignore-vcs --hidden --ignore-file=~/.ignore'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # plugins
 # TODO: make this work for both linux and darwin systems
