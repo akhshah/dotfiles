@@ -6,7 +6,6 @@ PAGER=vimpager
 export MANPAGER
 
 export PATH=/usr/local/bin:$PATH
-export PATH=/Applications/MATLAB_R2016a.app/bin:$PATH
 
 alias ls="ls --color"
 alias l="ls -al"
